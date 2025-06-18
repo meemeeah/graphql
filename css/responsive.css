@@ -1,0 +1,237 @@
+/* Responsive Design and Media Queries - Enhanced Creative & Professional */
+
+/* Enhanced Responsive Grid */
+@media (max-width: 768px) {
+    .container { 
+        padding: 0 var(--space-md); 
+    }
+    
+    .login-card { 
+        padding: var(--space-2xl); 
+        margin: var(--space-md); 
+        max-width: 400px;
+    }
+    
+    .info-grid, .stats-grid, .responsive-grid { 
+        grid-template-columns: 1fr; 
+        gap: var(--space-lg);
+    }
+    
+    .profile-info { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: var(--space-lg);
+    }
+    
+    .nav-container { 
+        flex-direction: column; 
+        gap: var(--space-md); 
+    }
+    
+    .user-greeting { 
+        display: none; 
+    }
+    
+    /* Responsive Chart */
+    .chart-container {
+        padding: var(--space-lg);
+    }
+    
+    .chart-title {
+        font-size: var(--text-lg);
+        padding-bottom: var(--space-sm);
+    }
+    
+    .user-additional-details {
+        justify-content: center;
+        gap: var(--space-sm);
+    }
+    
+    .user-detail-item {
+        font-size: var(--text-xs);
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    /* Responsive Typography */
+    .login-header h1 {
+        font-size: var(--text-3xl);
+    }
+    
+    .user-details h1 {
+        font-size: var(--text-3xl);
+    }
+    
+    .avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+    }
+    
+    .info-card {
+        padding: var(--space-lg);
+    }
+    
+    .info-card h3 {
+        font-size: var(--text-xl);
+    }
+    
+    .statistics-section {
+        padding: var(--space-2xl);
+    }
+    
+    .statistics-section h2 {
+        font-size: var(--text-3xl);
+    }
+    
+    .profile-header {
+        padding: var(--space-2xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content { 
+        padding: var(--space-lg) 0; 
+    }
+    
+    .profile-header, .info-card, .statistics-section { 
+        padding: var(--space-lg); 
+    }
+    
+    .chart-container { 
+        padding: var(--space-lg); 
+    }
+    
+    .chart svg { 
+        height: 250px; 
+    }
+    
+    .login-card {
+        padding: var(--space-xl);
+        margin: var(--space-sm);
+    }
+    
+    .login-header h1 {
+        font-size: var(--text-2xl);
+    }
+    
+    .user-details h1 {
+        font-size: var(--text-2xl);
+    }
+    
+    .avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+    
+    .nav-brand h2 {
+        font-size: var(--text-xl);
+    }
+    
+    .chart-container h4 {
+        font-size: var(--text-lg);
+    }
+}
+
+/* Legacy Responsive Styles - Enhanced */
+@media (max-width: 768px) {
+    .profile-section .info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .profile-section {
+        padding: var(--space-lg);
+    }
+    
+    .profile-section .info-item {
+        padding: var(--space-md);
+    }
+    
+    .profile-section .info-value {
+        font-size: var(--text-xl);
+    }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: var(--space-xl);
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: var(--space-xl);
+    }
+    
+    .chart svg {
+        height: 320px;
+    }
+}
+
+/* Large Screen Enhancements */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: var(--space-2xl);
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+        gap: var(--space-2xl);
+    }
+    
+    .chart svg {
+        height: 400px;
+    }
+    
+    .profile-header {
+        padding: var(--space-3xl);
+    }
+    
+    .statistics-section {
+        padding: var(--space-3xl);
+    }
+}
+
+/* High DPI Display Optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .glass-bg {
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+    }
+    
+    .info-card,
+    .chart-container,
+    .profile-header {
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+    }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .login-btn::before,
+    .info-card::before,
+    .avatar::before {
+        display: none;
+    }
+}
+
+/* Dark Mode Support (if needed in future) */
+@media (prefers-color-scheme: dark) {
+    /* Future dark mode styles can be added here */
+} 

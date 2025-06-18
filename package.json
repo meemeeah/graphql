@@ -1,0 +1,22 @@
+{
+  "name": "graphql-profile",
+  "version": "1.0.0",
+  "description": "GraphQL Profile Page with Authentication and Statistics",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -c-1",
+    "dev": "npx http-server -p 8080 -c-1 --cors",
+    "build": "echo 'Static build complete'",
+    "lint": "npx eslint js/*.js",
+    "format": "npx prettier --write ."
+  },
+  "keywords": ["graphql", "profile", "jwt", "svg", "statistics"],
+  "author": "GraphQL Student",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  },
+  "dependencies": {}
+} 

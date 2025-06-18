@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraphQL Profile</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <!-- <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23667eea'/><text y='70' font-size='70' fill='white'>G</text></svg>"> -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="page">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <h1>Welcome Back</h1>
+                    <p>Sign in to access your GraphQL profile</p>
+                </div>
+                
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="identifier">Username or Email</label>
+                        <input type="text" id="identifier" name="identifier" required 
+                               placeholder="Enter your username or email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required 
+                               placeholder="Enter your password">
+                    </div>
+                    
+                    <button type="submit" class="login-btn">
+                        <span class="btn-text">Sign In</span>
+                        <span class="btn-spinner hidden"></span>
+                    </button>
+                    
+                    <div id="loginError" class="error-message hidden"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Page -->
+    <div id="profilePage" class="page hidden">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h2>GraphQL Profile</h2>
+                </div>
+                <div class="nav-actions">
+                    <span id="userGreeting" class="user-greeting"></span>
+                    <button id="logoutBtn" class="logout-btn">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Profile Header -->
+                <section class="profile-header">
+                    <div class="profile-info">
+                        <div class="avatar">
+                            <span id="userInitials"></span>
+                        </div>
+                        <div class="user-details">
+                            <h1 id="userName"></h1>
+                            <p id="userLogin"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Three Information Sections -->
+                <div class="info-grid">
+                    <!-- Basic Information -->
+                    <section class="info-card">
+                        <h3>Basic Information</h3>
+                        <div id="basicInfo" class="info-content">
+                            <div class="loading-placeholder">Loading...</div>
+                        </div>
+                    </section>
+
+                    <!-- XP & Progress -->
+                    <section class="info-card">
+                        <h3>XP & Progress</h3>
+                        <div id="xpInfo" class="info-content">
+                            <div class="loading-placeholder">Loading...</div>
+                        </div>
+                    </section>
+
+                    <!-- Skills & Achievements -->
+                    <section class="info-card">
+                        <h3>Skills & Achievements</h3>
+                        <div id="skillsInfo" class="info-content">
+                            <div class="loading-placeholder">Loading...</div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Statistics Section -->
+                <section class="statistics-section">
+                    <h2>Statistics & Analytics</h2>
+                    <div class="stats-grid">
+                        <!-- XP Over Time Chart -->
+                        <div class="chart-container">
+                            <h4>XP Progress Over Time</h4>
+                            <div id="xpChart" class="chart">
+                                <svg id="xpProgressSvg" width="100%" height="300"></svg>
+                            </div>
+                        </div>
+
+                        <!-- Project Success Rate Chart -->
+                        <div class="chart-container">
+                            <h4>Project Success Rate</h4>
+                            <div id="successChart" class="chart">
+                                <svg id="successRateSvg" width="100%" height="300"></svg>
+                            </div>
+                        </div>
+
+                        <!-- Audit Ratio Chart -->
+                        <div class="chart-container">
+                            <h4>Audit Statistics</h4>
+                            <div id="auditChart" class="chart">
+                                <svg id="auditRatioSvg" width="100%" height="300"></svg>
+                            </div>
+                        </div>
+
+                        <!-- XP by Project Chart -->
+                        <div class="chart-container">
+                            <h4>XP Distribution by Projects</h4>
+                            <div id="projectChart" class="chart">
+                                <svg id="projectXpSvg" width="100%" height="300"></svg>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/graphql-client.js"></script>
+    <script src="js/data-formatters.js"></script>
+    <script src="js/progress-stats.js"></script>
+    <script src="js/ui-display.js"></script>
+    <script src="js/graphql-manager.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html> 

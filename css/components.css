@@ -1,0 +1,643 @@
+/* Reusable Components - Enhanced Creative & Professional */
+
+/* Enhanced Buttons */
+.login-btn {
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--rainbow-gradient);
+    background-size: 200% 200%;
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--radius-creative);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed) var(--transition-spring);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg), var(--glow-primary);
+    letter-spacing: 0.025em;
+    animation: gradientShift 3s ease infinite;
+}
+
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.login-btn:hover::before {
+    left: 100%;
+}
+
+.login-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-2xl), var(--glow-neon);
+    background: var(--neon-gradient);
+    background-size: 200% 200%;
+}
+
+.login-btn:active {
+    transform: translateY(-2px) scale(1.01);
+}
+
+.login-btn:disabled { 
+    opacity: 0.7; 
+    cursor: not-allowed; 
+    transform: none; 
+    animation: none;
+}
+
+.btn-spinner {
+    display: inline-block; 
+    width: 20px; 
+    height: 20px;
+    border: 2px solid transparent; 
+    border-top: 2px solid var(--text-white);
+    border-radius: 50%; 
+    animation: spin 1s linear infinite;
+}
+
+.logout-btn {
+    padding: var(--space-sm) var(--space-md);
+    background: var(--error-gradient);
+    color: var(--text-white);
+    border: none; 
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    cursor: pointer; 
+    transition: all var(--transition-speed) var(--transition-spring);
+    box-shadow: var(--shadow-md), var(--glow-secondary);
+    font-size: var(--text-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.logout-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.4s;
+}
+
+.logout-btn:hover::before {
+    left: 100%;
+}
+
+.logout-btn:hover { 
+    background: var(--error-gradient);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-lg), var(--glow-secondary);
+}
+
+/* Enhanced Form Elements */
+.form-group { 
+    margin-bottom: var(--space-lg); 
+    position: relative;
+}
+
+.form-group label {
+    display: block; 
+    margin-bottom: var(--space-sm); 
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: var(--text-sm);
+    letter-spacing: 0.025em;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.form-group input {
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-creative);
+    font-size: var(--text-base);
+    transition: all var(--transition-speed) var(--transition-smooth);
+    background: var(--glass-creative);
+    backdrop-filter: var(--blur-light);
+    box-shadow: var(--shadow-sm);
+    font-weight: 500;
+    position: relative;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1), var(--glow-primary);
+    transform: translateY(-3px);
+    background: var(--bg-primary);
+}
+
+.form-group input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* Enhanced Cards */
+.login-card {
+    background: var(--glass-creative);
+    backdrop-filter: var(--blur-heavy);
+    -webkit-backdrop-filter: var(--blur-heavy);
+    padding: var(--space-3xl);
+    border-radius: var(--radius-3xl);
+    box-shadow: var(--glass-shadow), var(--shadow-creative);
+    width: 100%; 
+    max-width: 450px;
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s;
+}
+
+.login-card:hover::before {
+    left: 100%;
+}
+
+.login-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--rainbow-gradient);
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+}
+
+.info-card {
+    background: var(--glass-creative);
+    backdrop-filter: var(--blur-heavy);
+    -webkit-backdrop-filter: var(--blur-heavy);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--glass-shadow), var(--shadow-creative);
+    transition: all var(--transition-speed) var(--transition-spring);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: var(--glass-shadow-hover), var(--glow-primary);
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 100%
+    );
+    transform: skewX(-25deg);
+    animation: shine 8s infinite;
+}
+
+.info-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--ocean-gradient);
+    background-size: 200% 200%;
+    animation: gradientShift 5s ease infinite;
+}
+
+/* Enhanced Badges and Tags */
+.xp-badge {
+    background: var(--success-gradient);
+    color: var(--text-white);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    box-shadow: var(--shadow-md), var(--glow-accent);
+    transition: all var(--transition-speed) var(--transition-spring);
+    position: relative;
+    overflow: hidden;
+}
+
+.xp-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.4s;
+}
+
+.xp-badge:hover::before {
+    left: 100%;
+}
+
+.xp-badge:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: var(--shadow-lg), var(--glow-neon);
+    background: var(--neon-gradient);
+}
+
+.skill-tag {
+    display: inline-block; 
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin: var(--space-xs) var(--space-sm) var(--space-xs) 0;
+    border: 1px solid var(--border-light);
+    transition: all var(--transition-speed) var(--transition-spring);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+    transition: left 0.4s;
+}
+
+.skill-tag:hover::before {
+    left: 100%;
+}
+
+.skill-tag:hover {
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-md), var(--glow-primary);
+}
+
+.user-detail-item {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border: 1px solid var(--border-light);
+    transition: all var(--transition-speed) var(--transition-spring);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.user-detail-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(240, 147, 251, 0.2), transparent);
+    transition: left 0.4s;
+}
+
+.user-detail-item:hover::before {
+    left: 100%;
+}
+
+.user-detail-item:hover {
+    background: var(--secondary-gradient);
+    color: var(--text-white);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-md), var(--glow-secondary);
+}
+
+/* Enhanced Info Items */
+.info-item {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: var(--space-md) 0; 
+    border-bottom: 1px solid var(--bg-tertiary);
+    transition: all var(--transition-speed) var(--transition-smooth);
+    position: relative;
+}
+
+.info-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 0;
+    background: var(--accent-gradient);
+    transition: height 0.3s ease;
+}
+
+.info-item:hover::before {
+    height: 100%;
+}
+
+.info-item:hover {
+    background: var(--bg-tertiary);
+    margin: 0 calc(-1 * var(--space-md));
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    transform: translateX(5px);
+}
+
+.info-item:last-child { 
+    border-bottom: none; 
+}
+
+.info-label { 
+    font-weight: 600; 
+    color: var(--text-secondary); 
+    font-size: var(--text-base);
+    transition: color 0.3s ease;
+}
+
+.info-item:hover .info-label {
+    color: var(--primary-color);
+}
+
+.info-value { 
+    font-weight: 700; 
+    color: var(--text-primary); 
+    font-size: var(--text-lg);
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover .info-value {
+    background: var(--rainbow-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* Enhanced XP Number Styling */
+.xp-total,
+.info-value:contains("XP"),
+.info-value:contains("kB"),
+.info-value:contains("Progress") {
+    background: var(--neon-gradient);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: 800;
+    font-size: var(--text-xl);
+    text-shadow: var(--glow-neon);
+    animation: gradientShift 3s ease infinite, glowPulse 2s infinite;
+    letter-spacing: 0.025em;
+}
+
+/* Specific XP number styling */
+.info-value:contains("1,215"),
+.info-value:contains("kB") {
+    background: var(--rainbow-gradient);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: 900;
+    font-size: var(--text-2xl);
+    text-shadow: var(--glow-primary);
+    animation: gradientShift 2s ease infinite, neonFlicker 1.5s infinite;
+    letter-spacing: 0.05em;
+    position: relative;
+}
+
+.info-value:contains("1,215")::before,
+.info-value:contains("kB")::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--neon-gradient);
+    background-size: 200% 200%;
+    border-radius: var(--radius-sm);
+    opacity: 0.3;
+    z-index: -1;
+    animation: gradientShift 2s ease infinite;
+}
+
+/* Progress percentage styling */
+.info-value:contains("%") {
+    background: var(--sunset-gradient);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: 800;
+    font-size: var(--text-xl);
+    text-shadow: var(--glow-secondary);
+    animation: gradientShift 4s ease infinite;
+    letter-spacing: 0.025em;
+}
+
+/* Enhanced XP Number Styling - Using actual classes */
+.xp-total {
+    background: var(--rainbow-gradient);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: 900;
+    font-size: var(--text-2xl);
+    text-shadow: var(--glow-primary);
+    animation: gradientShift 2s ease infinite, neonFlicker 1.5s infinite;
+    letter-spacing: 0.05em;
+    position: relative;
+    display: inline-block;
+}
+
+.xp-total::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: var(--neon-gradient);
+    background-size: 200% 200%;
+    border-radius: var(--radius-sm);
+    opacity: 0.4;
+    z-index: -1;
+    animation: gradientShift 2s ease infinite;
+    filter: blur(2px);
+}
+
+/* XP Week and Month styling */
+.xp-week,
+.xp-month {
+    background: var(--ocean-gradient);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: 800;
+    font-size: var(--text-lg);
+    text-shadow: var(--glow-accent);
+    animation: gradientShift 3s ease infinite;
+    letter-spacing: 0.025em;
+    position: relative;
+    display: inline-block;
+}
+
+.xp-week::before,
+.xp-month::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--accent-gradient);
+    background-size: 200% 200%;
+    border-radius: var(--radius-sm);
+    opacity: 0.3;
+    z-index: -1;
+    animation: gradientShift 3s ease infinite;
+    filter: blur(1px);
+}
+
+.xp-week:hover,
+.xp-month:hover {
+    background: var(--neon-gradient);
+    background-size: 200% 200%;
+    animation: gradientShift 1.5s ease infinite, glowPulse 1s infinite;
+    transform: scale(1.05);
+}
+
+/* XP Badge with enhanced styling */
+.xp-badge.xp-total {
+    background: var(--rainbow-gradient);
+    background-size: 200% 200%;
+    color: var(--text-white);
+    font-weight: 900;
+    font-size: var(--text-xl);
+    text-shadow:
+        0 1px 8px #fff,
+        0 0 2px #222,
+        0 0 1px #000,
+        var(--glow-primary);
+    -webkit-text-stroke: 1px #222;
+    animation: gradientShift 2s ease infinite, glowPulse 1.5s infinite;
+    letter-spacing: 0.05em;
+    position: relative;
+    overflow: visible;
+    box-shadow: var(--shadow-lg), var(--glow-neon);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background-clip: padding-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--text-white);
+}
+
+.xp-badge.xp-total::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--neon-gradient);
+    background-size: 200% 200%;
+    border-radius: var(--radius-full);
+    opacity: 0.6;
+    z-index: -1;
+    animation: gradientShift 2s ease infinite;
+    filter: blur(3px);
+}
+
+.xp-badge.xp-total:hover {
+    transform: scale(1.15) rotate(3deg);
+    box-shadow: var(--shadow-2xl), var(--glow-neon);
+    background: var(--neon-gradient);
+    background-size: 200% 200%;
+    animation: gradientShift 1s ease infinite, neonFlicker 0.5s infinite;
+}
+
+/* Any info-value containing XP numbers */
+.info-value:has(.xp-total),
+.info-value:has(.xp-badge) {
+    background: transparent;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: unset;
+    animation: none;
+}
+
+/* Progress percentage styling */
+.info-value:contains("%") {
+    background: var(--sunset-gradient);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: 800;
+    font-size: var(--text-xl);
+    text-shadow: var(--glow-secondary);
+    animation: gradientShift 4s ease infinite;
+    letter-spacing: 0.025em;
+}
+
+.info-subtitle { 
+    font-size: var(--text-sm); 
+    color: var(--text-muted); 
+    margin-top: var(--space-xs); 
+    font-weight: 500;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.info-item:hover .info-subtitle {
+    color: var(--secondary-color);
+} 

@@ -1,0 +1,213 @@
+/* Page-Specific Styles - Enhanced Creative & Professional */
+
+/* Enhanced Profile Header */
+.profile-header {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: var(--space-3xl);
+    border-radius: var(--radius-3xl);
+    box-shadow: var(--glass-shadow);
+    border: 1px solid var(--glass-border);
+    margin-bottom: var(--space-2xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    font-size: 3rem;
+    font-weight: 800;
+    box-shadow: var(--shadow-2xl);
+    transition: all var(--transition-speed) var(--transition-spring);
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.avatar:hover::before {
+    transform: translateX(100%);
+}
+
+.avatar:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: var(--shadow-2xl);
+}
+
+.user-details h1 { 
+    font-size: var(--text-4xl); 
+    font-weight: 800; 
+    margin-bottom: var(--space-sm);
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    letter-spacing: -0.025em;
+}
+
+.user-details p { 
+    color: var(--text-secondary); 
+    font-size: var(--text-xl);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+}
+
+/* Enhanced Info Cards Content */
+.info-card h3 {
+    font-size: var(--text-2xl); 
+    font-weight: 700; 
+    margin-bottom: var(--space-lg);
+    border-bottom: 3px solid var(--bg-tertiary); 
+    padding-bottom: var(--space-md);
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    letter-spacing: -0.025em;
+}
+
+/* Enhanced Statistics Section */
+.statistics-section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: var(--space-3xl);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--glass-shadow);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.statistics-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+}
+
+.statistics-section h2 {
+    font-size: var(--text-4xl); 
+    font-weight: 800; 
+    margin-bottom: var(--space-3xl); 
+    text-align: center;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    letter-spacing: -0.025em;
+}
+
+/* Legacy Profile Section Styles - Enhanced */
+.profile-section .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+}
+
+.profile-section .info-item {
+    padding: var(--space-lg);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-speed) var(--transition-spring);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-section .info-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    background: var(--bg-primary);
+    border-color: var(--primary-color);
+}
+
+.profile-section .info-label {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.profile-section .info-value {
+    color: var(--text-primary);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.profile-section .skill-tag {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    transition: all var(--transition-speed) var(--transition-spring);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-section .skill-tag:hover {
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Enhanced Error Message Positioning */
+.error-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--error-gradient);
+    color: var(--text-white);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    z-index: 1000;
+    animation: slideIn 0.3s var(--transition-smooth);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(245, 101, 101, 0.3);
+    font-weight: 600;
+    max-width: 400px;
+} 
