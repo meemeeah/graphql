@@ -45,10 +45,6 @@ class UIDisplay {
                 <span class="info-label">Projects Passed</span>
                 <span class="info-value">${passedProjects}</span>
             </div>
-            <div class="info-item">
-                <span class="info-label">Success Rate</span>
-                <span class="info-value">${successRate}%</span>
-            </div>
             <div class="audit-info">
                 <div class="info-item">
                     <span class="info-label">Done</span>
@@ -132,10 +128,6 @@ class UIDisplay {
         ).join('');
 
         const skillsInfo = `
-            <div class="info-item">
-                <span class="info-label">Success Rate</span>
-                <span class="info-value">${successRate}%</span>
-            </div>
             <div class="info-item">
                 <span class="info-label">Projects Passed</span>
                 <span class="info-value">${passedProjects}</span>

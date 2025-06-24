@@ -4,8 +4,8 @@
   "description": "GraphQL Profile Page with Authentication and Statistics",
   "main": "index.html",
   "scripts": {
-    "start": "npx http-server -p 8080 -c-1",
-    "dev": "npx http-server -p 8080 -c-1 --cors",
+    "start": "npx http-server public -p 8080 -a localhost -c-1",
+    "dev": "npx http-server public -p 8080 -a localhost -c-1 --cors",
     "build": "echo 'Static build complete'",
     "lint": "npx eslint js/*.js",
     "format": "npx prettier --write ."
