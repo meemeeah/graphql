@@ -37,8 +37,8 @@ class ProfileManager {
         const { transaction, progress } = data;
         
         // Calculate total XP
-        const totalXP = transaction.reduce((sum, t) => sum + t.amount, 0);
-        document.getElementById('totalXP').textContent = this.formatNumber(totalXP) + ' XP';
+        // const totalXP = transaction.reduce((sum, t) => sum + t.amount, 0);
+        // document.getElementById('totalXP').textContent = this.formatNumber(totalXP) + ' XP';
         
         // Calculate projects completed
         const completedProjects = progress.filter(p => p.grade === 1).length;

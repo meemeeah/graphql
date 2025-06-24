@@ -81,12 +81,7 @@ class UIDisplay {
         const xpTrends = this.dataFormatters.calculateXPTrends(transactions);
         
         const xpInfo = `
-            <div class="info-item">
-                <span class="info-label">Total XP</span>
-                <span class="info-value">
-                    <span class="xp-badge xp-total">${this.dataFormatters.formatXP(totalXP)}</span>
-                </span>
-            </div>
+            
             <div class="info-item">
                 <span class="info-label">Last Week XP</span>
                 <span class="info-value xp-week">${this.dataFormatters.formatXP(xpTrends.lastWeekXP)}</span>
