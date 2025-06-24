@@ -1,15 +1,15 @@
 // Configuration constants
 const CONFIG = {
     // API Endpoints - Replace ((DOMAIN)) with actual domain
-    // Example: if your school is at https://learn.zone01dakar.sn
-    // Then replace ((DOMAIN)) with learn.zone01dakar.sn
+    // Example: if your school is at https://learn.reboot01.com
+    // Then replace ((DOMAIN)) with learn.reboot01.com
     // https://((DOMAIN))/api/graphql-engine/v1/graphql
     GRAPHQL_ENDPOINT: 'https://learn.reboot01.com/api/graphql-engine/v1/graphql',
     SIGNIN_ENDPOINT: 'https://learn.reboot01.com/api/auth/signin',
     
     // For development/testing, you can use these placeholder endpoints:
-    // GRAPHQL_ENDPOINT: 'https://learn.zone01dakar.sn/api/graphql-engine/v1/graphql',
-    // SIGNIN_ENDPOINT: 'https://learn.zone01dakar.sn/api/auth/signin',
+    // GRAPHQL_ENDPOINT: 'https://learn.reboot01.com/api/graphql-engine/v1/graphql',
+    // SIGNIN_ENDPOINT: 'https://learn.reboot01.com/api/auth/signin',
     
     // STEP-BY-STEP: How to find and replace your domain
     // 1. Go to your school platform in browser

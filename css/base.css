@@ -9,14 +9,16 @@ body {
     font-family: var(--font-creative);
     line-height: 1.6;
     color: var(--text-primary);
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
     min-height: 100vh;
     font-size: clamp(1rem, 0.875rem + 0.15625vw, 1.125rem);
     overflow-x: hidden;
     position: relative;
 }
 
-/* Enhanced Creative Background Pattern */
+/* Creative Background Pattern */
 body::before {
     content: '';
     position: fixed;

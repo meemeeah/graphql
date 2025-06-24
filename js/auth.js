@@ -105,7 +105,7 @@ class AuthManager {
                         errorMessage = 'Invalid username/email or password.';
                         break;
                     case 403:
-                        errorMessage = 'Access forbidden. Please contact support.';
+                        errorMessage = 'Invalid password please try again.'; 
                         break;
                     case 429:
                         errorMessage = 'Too many login attempts. Please try again later.';
@@ -219,6 +219,12 @@ class AuthManager {
             utils.showError('Error loading profile data. Please try refreshing the page.');
         } finally {
             utils.hideLoading();
+            if (typeof loadAllProfileData === 'function') {
+                loadAllProfileData();
+            }
+            if (typeof renderLevelDistribution === 'function') {
+                renderLevelDistribution();
+            }
         }
     }
 

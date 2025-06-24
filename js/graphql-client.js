@@ -176,6 +176,23 @@ class GraphQLClient {
         return data.progress;
     }
 
+    // Get user event registrations
+    async getUserEvents() {
+        const query = `
+            query GetUserEvents {
+                event_user {
+                    level
+                    event {
+                        id
+                        path
+                    }
+                }
+            }
+        `;
+        const data = await this.query(query);
+        return data.event_user;
+    }
+
     // Get user audits
     async getUserAudits() {
         const query = `

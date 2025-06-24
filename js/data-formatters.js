@@ -4,13 +4,11 @@
  */
 
 class DataFormatters {
-    // Format XP in kB
+    // Format XP in XP
     static formatXP(xp) {
-        if (!xp) return '0 kB';
-        // Convert to kB (divide by 1000) and round to nearest integer
-        const kb = Math.round(xp / 1000);
-        // Format with lowercase 'k' and proper spacing
-        return `${kb.toLocaleString()} kB`;
+        if (!xp) return '0 XP';
+        // Format with XP suffix and proper spacing
+        return `${xp.toLocaleString()} XP`;
     }
 
     // Format bytes to kB/MB
@@ -32,6 +30,29 @@ class DataFormatters {
         if (!totalUp || !totalDown) return '0.00';
         const ratio = totalUp / totalDown;
         return ratio.toFixed(1);
+    }
+
+    // Calculate XP progress towards the next level
+    static getLevelProgressInfo(totalXP) {
+        let level = 0;
+        let xpForNext = 1000; // XP required for the first level
+        let xpAccumulated = 0;
+
+        // Determine the XP thresholds up to the user's current totalXP
+        while (xpAccumulated + xpForNext < totalXP) {
+            xpAccumulated += xpForNext;
+            level++;
+            xpForNext = Math.floor(xpForNext * 1.1); // XP for next level increases
+        }
+
+        const xpIntoLevel = totalXP - xpAccumulated;
+        const progressToNextLevel = (xpIntoLevel / xpForNext) * 100;
+        const xpNeededForNext = xpForNext - xpIntoLevel;
+
+        return {
+            xpNeededForNext,
+            progressToNextLevel,
+        };
     }
 
     // Extract project name from path
@@ -145,19 +166,56 @@ class DataFormatters {
     }
 
     // Prepare project XP data
-    static prepareProjectXPData(transactions) {
+    static prepareProjectXPData(transactions, completedProjects = null) {
         const xpByProject = {};
         transactions
             .filter(t => t.type === 'xp')
             .forEach(t => {
                 const projectName = this.extractProjectName(t.path);
-                xpByProject[projectName] = (xpByProject[projectName] || 0) + t.amount;
+                // Only include if completedProjects is not provided or projectName is in completedProjects
+                if (!completedProjects || completedProjects.includes(projectName)) {
+                    xpByProject[projectName] = (xpByProject[projectName] || 0) + t.amount;
+                }
             });
 
         return Object.entries(xpByProject)
             .sort(([,a], [,b]) => b - a)
             .slice(0, 10)
             .map(([name, value]) => ({ name, value }));
+    }
+
+    // Prepare data for Audits Points Chart
+    static prepareAuditsPointsData(totalUp, totalDown) {
+        return [
+            { label: 'Done', value: totalUp || 0, color: CONFIG.CHART_COLORS.success },
+            { label: 'Received', value: totalDown || 0, color: CONFIG.CHART_COLORS.info }
+        ];
+    }
+
+    // Prepare skill data for ColumnChart (top 6 skills by highest amount)
+    static prepareSkillColumnChartData(transactions) {
+        // Only consider transactions where type starts with 'skill_'
+        const skills = [];
+        transactions.forEach(transaction => {
+            const typeParts = transaction.type.split('_', 2);
+            if (typeParts[0] === 'skill' && typeParts.length === 2) {
+                const skillName = typeParts[1];
+                // Check if skill already found in the array
+                const skill = skills.find(s => s.name === skillName);
+                if (skill) {
+                    if (skill.value < transaction.amount) {
+                        skill.value = transaction.amount;
+                    }
+                } else {
+                    skills.push({
+                        name: skillName,
+                        value: transaction.amount
+                    });
+                }
+            }
+        });
+        // Sort by value descending and take top 6
+        return skills.sort((a, b) => b.value - a.value).slice(0, 6);
     }
 }
 

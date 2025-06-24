@@ -87,10 +87,10 @@ class ProfileManager {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    calculateAuditRatio() {
-        // Implementation depends on your data structure
-        return 0.80; // Placeholder
-    }
+    // calculateAuditRatio() {
+    //     // Implementation depends on your data structure
+    //     return 0.80; // Placeholder
+    // }
 
     getLastActivity(transactions, progress) {
         const allActivities = [

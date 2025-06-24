@@ -35,6 +35,10 @@
     z-index: 100;
     box-shadow: var(--shadow-sm), var(--shadow-creative);
     transition: all var(--transition-speed) var(--transition-smooth);
+    background-image: url('pic/Background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .navbar:hover {

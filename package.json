@@ -10,13 +10,21 @@
     "lint": "npx eslint js/*.js",
     "format": "npx prettier --write ."
   },
-  "keywords": ["graphql", "profile", "jwt", "svg", "statistics"],
+  "keywords": [
+    "graphql",
+    "profile",
+    "jwt",
+    "svg",
+    "statistics"
+  ],
   "author": "GraphQL Student",
   "license": "MIT",
   "devDependencies": {
-    "http-server": "^14.1.1",
     "eslint": "^8.0.0",
+    "http-server": "^14.1.1",
     "prettier": "^3.0.0"
   },
-  "dependencies": {}
-} 
+  "dependencies": {
+    "recharts": "^3.0.0"
+  }
+}

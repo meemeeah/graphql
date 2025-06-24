@@ -38,10 +38,6 @@ class UIDisplay {
                 <span class="info-value">${userData.attrs.email}</span>
             </div>
             <div class="info-item">
-                <span class="info-label">Total XP</span>
-                <span class="info-value xp-total">${this.dataFormatters.formatXP(xpTotal)}</span>
-            </div>
-            <div class="info-item">
                 <span class="info-label">Projects Completed</span>
                 <span class="info-value">${totalProjects}</span>
             </div>
@@ -158,17 +154,40 @@ class UIDisplay {
                 <span class="info-value">${lastMonthProjects}</span>
                 <div class="info-subtitle">${utils.formatDate(oneMonthAgo)} - ${utils.formatDate(now)}</div>
             </div>
-            <div class="info-item">
-                <span class="info-label">Top Skills</span>
-                <div class="skill-tags">${skillTags}</div>
-            </div>
+            
         `;
         
         skillsInfoElement.innerHTML = skillsInfo;
     }
 
+    // Display user rank and level
+    displayRank(events, totalXP) {
+        // Remove the rank display entirely
+        const rankContainer = document.getElementById('rankContainer');
+        if (rankContainer) {
+            rankContainer.innerHTML = '';
+            rankContainer.style.display = 'none';
+        }
+    }
+
+    // Display Audits Points Chart and Ratio
+    displayAuditsPointsChart(userData) {
+        if (!userData) return;
+        const auditsData = this.dataFormatters.prepareAuditsPointsData(userData.totalUp, userData.totalDown);
+        if (window.chartManager) {
+            window.chartManager.createAuditsPointsChart(auditsData);
+        }
+        // Display audit ratio
+        const ratio = userData.totalDown ? (userData.totalUp / userData.totalDown) : 0;
+        const roundedRatio = Math.round(ratio * 100) / 100;
+        const ratioDiv = document.getElementById('auditRatioDisplay');
+        if (ratioDiv) {
+            ratioDiv.textContent = `Audit Ratio: ${roundedRatio}`;
+        }
+    }
+
     // Generate all charts
-    async generateCharts(transactions, progress) {
+    async generateCharts(transactions, progress, userData) {
         if (window.chartManager) {
             const xpData = this.dataFormatters.prepareXPProgressData(transactions);
             window.chartManager.createXPProgressChart(xpData);
@@ -179,8 +198,36 @@ class UIDisplay {
             const auditData = this.dataFormatters.prepareAuditData(transactions);
             window.chartManager.createAuditChart(auditData);
 
-            const projectXPData = this.dataFormatters.prepareProjectXPData(transactions);
-            window.chartManager.createProjectXPChart(projectXPData);
+            // Arrange all projects from oldest to newest based on first appearance in progress
+            const projectOrder = [];
+            const seen = new Set();
+            progress
+                .filter(p => p.object && p.object.name)
+                .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+                .forEach(p => {
+                    if (!seen.has(p.object.name)) {
+                        seen.add(p.object.name);
+                        projectOrder.push(p.object.name);
+                    }
+                });
+            const projectXPData = this.dataFormatters.prepareProjectXPData(transactions, projectOrder);
+            // Sort the chart data to match the projectOrder (oldest to newest)
+            const projectXPDataOrdered = projectOrder
+                .map(name => projectXPData.find(d => d.name === name))
+                .filter(Boolean);
+            window.chartManager.createProjectXPChart(projectXPDataOrdered);
+
+            // Audits Points Chart
+            if (userData) {
+                this.displayAuditsPointsChart(userData);
+            }
+
+            // Skill Best Scores ColumnChart
+            const skillData = this.dataFormatters.prepareSkillColumnChartData(transactions);
+            window.chartManager.createSkillColumnChart(skillData);
+
+            // Cumulative XP Chart
+            window.chartManager.createCumulativeXPChart(transactions);
         }
     }
 

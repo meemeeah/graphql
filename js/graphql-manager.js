@@ -19,12 +19,13 @@ class GraphQLManager {
             this.uiDisplay.showLoading();
 
             // Load data in parallel for better performance
-            const [user, transactions, progress, xpTotal, progressStats] = await Promise.all([
+            const [user, transactions, progress, xpTotal, progressStats, events] = await Promise.all([
                 this.graphqlClient.getCurrentUser(),
                 this.graphqlClient.getUserTransactions(),
                 this.graphqlClient.getUserProgress(),
                 this.graphqlClient.getUserXPTotal(),
-                this.progressStats.getUserProgressStats()
+                this.progressStats.getUserProgressStats(),
+                this.graphqlClient.getUserEvents()
             ]);
 
             console.log('✅ All data loaded successfully');
@@ -36,6 +37,7 @@ class GraphQLManager {
             this.uiDisplay.displayBasicInfo(user, xpTotal, progressStats);
             this.uiDisplay.displayXPInfo(transactions, xpTotal);
             this.uiDisplay.displaySkillsInfo(progress, progressStats);
+            this.uiDisplay.displayRank(events, xpTotal);
             
             // Generate charts
             await this.uiDisplay.generateCharts(transactions, progress);
